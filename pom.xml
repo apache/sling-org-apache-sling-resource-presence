@@ -43,9 +43,9 @@
   </properties>
 
   <scm>
-    <connection>scm:svn:http://svn.apache.org/repos/asf/sling/trunk/bundles/extensions/org.apache.sling.resource.presence</connection>
-    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/sling/trunk/bundles/extensions/org.apache.sling.resource.presence</developerConnection>
-    <url>http://svn.apache.org/viewvc/sling/trunk/bundles/extensions/org.apache.sling.resource.presence</url>
+    <connection>scm:git:https://gitbox.apache.org/repos/asf/sling-org-apache-sling-resource-presence.git</conncetion>
+    <developerConnection>scm:git:https://gitbox.apache.org/repos/asf/sling-org-apache-sling-resource-presence.git</developerConnection>
+    <url>https://gitbox.apache.org/repos/asf?p=sling-org-apache-sling-resource-presence.git</url>
   </scm>
 
   <dependencies>
