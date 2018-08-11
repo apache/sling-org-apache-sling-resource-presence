@@ -18,11 +18,13 @@
  */
 package org.apache.sling.resource.presence;
 
+import org.jetbrains.annotations.NotNull;
 import org.osgi.annotation.versioning.ProviderType;
 
 @ProviderType
 public interface ResourcePresence {
 
+    @NotNull
     String getPath();
 
 }
