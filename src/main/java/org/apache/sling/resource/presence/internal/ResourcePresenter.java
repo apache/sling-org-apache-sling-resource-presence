@@ -59,10 +59,10 @@ public class ResourcePresenter {
     private ServiceRegistration<ResourceChangeListener> listenerRegistration;
 
     @Reference
-    private ResourceResolverFactory resourceResolverFactory;
+    private volatile ResourceResolverFactory resourceResolverFactory;
 
     @Reference
-    private ServiceUserMapped serviceUserMapped;
+    private volatile ServiceUserMapped serviceUserMapped;
 
     private final Logger logger = LoggerFactory.getLogger(ResourcePresenter.class);
 
