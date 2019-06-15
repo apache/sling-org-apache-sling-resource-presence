@@ -20,6 +20,7 @@ package org.apache.sling.resource.presence;
 
 import org.apache.sling.testing.paxexam.TestSupport;
 import org.ops4j.pax.exam.Option;
+import org.ops4j.pax.exam.options.ModifiableCompositeOption;
 
 import static org.apache.sling.testing.paxexam.SlingOptions.slingQuickstartOakTar;
 import static org.ops4j.pax.exam.CoreOptions.composite;
@@ -31,7 +32,7 @@ public abstract class ResourcePresenterTestSupport extends TestSupport {
 
     protected static final String FACTORY_PID = "org.apache.sling.resource.presence.internal.ResourcePresenter";
 
-    protected Option baseConfiguration() {
+    protected ModifiableCompositeOption baseConfiguration() {
         return composite(
             super.baseConfiguration(),
             slingQuickstart(),
