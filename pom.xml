@@ -47,6 +47,44 @@
     <url>https://gitbox.apache.org/repos/asf?p=sling-org-apache-sling-resource-presence.git</url>
   </scm>
 
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>biz.aQute.bnd</groupId>
+        <artifactId>bnd-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>biz.aQute.bnd</groupId>
+        <artifactId>bnd-baseline-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-failsafe-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>integration-test</goal>
+              <goal>verify</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <redirectTestOutputToFile>true</redirectTestOutputToFile>
+          <systemProperties>
+            <property>
+              <name>bundle.filename</name>
+              <value>${basedir}/target/${project.build.finalName}.jar</value>
+            </property>
+          </systemProperties>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.servicemix.tooling</groupId>
+        <artifactId>depends-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+
   <dependencies>
     <!-- javax -->
     <dependency>
@@ -161,43 +199,5 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>biz.aQute.bnd</groupId>
-        <artifactId>bnd-maven-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <groupId>biz.aQute.bnd</groupId>
-        <artifactId>bnd-baseline-maven-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-failsafe-plugin</artifactId>
-        <executions>
-          <execution>
-            <goals>
-              <goal>integration-test</goal>
-              <goal>verify</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <redirectTestOutputToFile>true</redirectTestOutputToFile>
-          <systemProperties>
-            <property>
-              <name>bundle.filename</name>
-              <value>${basedir}/target/${project.build.finalName}.jar</value>
-            </property>
-          </systemProperties>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.servicemix.tooling</groupId>
-        <artifactId>depends-maven-plugin</artifactId>
-      </plugin>
-    </plugins>
-  </build>
 
 </project>
