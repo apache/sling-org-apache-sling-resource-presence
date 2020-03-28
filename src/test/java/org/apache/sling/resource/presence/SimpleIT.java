@@ -31,6 +31,7 @@ import org.ops4j.pax.exam.util.Filter;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import static org.ops4j.pax.exam.CoreOptions.options;
 import static org.ops4j.pax.exam.cm.ConfigurationAdminOptions.factoryConfiguration;
 
 @RunWith(PaxExam.class)
@@ -47,7 +48,7 @@ public class SimpleIT extends ResourcePresenterTestSupport {
 
     @Configuration
     public Option[] configuration() {
-        return new Option[]{
+        return options(
             baseConfiguration(),
             factoryConfiguration(FACTORY_PID)
                 .put("path", "/apps")
@@ -55,7 +56,7 @@ public class SimpleIT extends ResourcePresenterTestSupport {
             factoryConfiguration(FACTORY_PID)
                 .put("path", "/libs")
                 .asOption()
-        };
+        );
     }
 
     @Test
