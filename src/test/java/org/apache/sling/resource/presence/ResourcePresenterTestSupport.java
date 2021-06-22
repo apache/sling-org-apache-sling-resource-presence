@@ -18,14 +18,20 @@
  */
 package org.apache.sling.resource.presence;
 
+import java.util.Objects;
+
 import org.apache.sling.testing.paxexam.TestSupport;
 import org.ops4j.pax.exam.Option;
 import org.ops4j.pax.exam.options.ModifiableCompositeOption;
+import org.ops4j.pax.exam.options.OptionalCompositeOption;
+import org.ops4j.pax.exam.options.extra.VMOption;
 
 import static org.apache.sling.testing.paxexam.SlingOptions.slingQuickstartOakTar;
 import static org.ops4j.pax.exam.CoreOptions.composite;
 import static org.ops4j.pax.exam.CoreOptions.junitBundles;
 import static org.ops4j.pax.exam.CoreOptions.mavenBundle;
+import static org.ops4j.pax.exam.CoreOptions.vmOption;
+import static org.ops4j.pax.exam.CoreOptions.when;
 import static org.ops4j.pax.exam.cm.ConfigurationAdminOptions.factoryConfiguration;
 
 public abstract class ResourcePresenterTestSupport extends TestSupport {
@@ -43,8 +49,16 @@ public abstract class ResourcePresenterTestSupport extends TestSupport {
                 .asOption(),
             // testing
             mavenBundle().groupId("org.apache.servicemix.bundles").artifactId("org.apache.servicemix.bundles.hamcrest").versionAsInProject(),
-            junitBundles()
+            junitBundles(),
+            jacoco() // remove with Testing PaxExam 4.0
         );
+    }
+
+    // remove with Testing PaxExam 4.0
+    protected OptionalCompositeOption jacoco() {
+        final String jacocoCommand = System.getProperty("jacoco.command");
+        final VMOption option = Objects.nonNull(jacocoCommand) && !jacocoCommand.trim().isEmpty() ? vmOption(jacocoCommand) : null;
+        return when(Objects.nonNull(option)).useOptions(option);
     }
 
     protected Option slingQuickstart() {

@@ -62,12 +62,9 @@
         </executions>
         <configuration>
           <redirectTestOutputToFile>true</redirectTestOutputToFile>
-          <systemProperties>
-            <property>
-              <name>bundle.filename</name>
-              <value>${basedir}/target/${project.build.finalName}.jar</value>
-            </property>
-          </systemProperties>
+          <systemPropertyVariables combine.children="append">
+            <bundle.filename>${basedir}/target/${project.build.finalName}.jar</bundle.filename>
+          </systemPropertyVariables>
         </configuration>
       </plugin>
       <plugin>
