@@ -32,6 +32,6 @@ public interface ResourcePresence {
      *
      * @return the path of the resource
      */
-    @NotNull String getPath();
+    public abstract @NotNull String getPath();
 
 }
