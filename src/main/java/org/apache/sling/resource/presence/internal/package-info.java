@@ -18,9 +18,6 @@
  */
 
 /**
- * Provides the Apache Sling Resource Presence API.
+ * Provides an implementation of the Apache Sling Resource Presence API.
  */
-@Version("1.0.1")
-package org.apache.sling.resource.presence;
-
-import org.osgi.annotation.versioning.Version;
+package org.apache.sling.resource.presence.internal;
