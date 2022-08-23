@@ -100,6 +100,7 @@ public final class ResourcePresenter {
         return () -> path;
     }
 
+    @SuppressWarnings("checkstyle:LambdaBodyLength")
     private ResourceChangeListener resourceChangeListener() {
         return resourceChanges -> {
             for (final ResourceChange resourceChange : resourceChanges) {
