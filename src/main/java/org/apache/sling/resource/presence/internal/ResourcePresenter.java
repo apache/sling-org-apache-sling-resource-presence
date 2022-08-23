@@ -65,6 +65,7 @@ public final class ResourcePresenter {
     private volatile ResourceResolverFactory resourceResolverFactory;
 
     @Reference
+    @SuppressWarnings("unused")
     private volatile ServiceUserMapped serviceUserMapped;
 
     private final Logger logger = LoggerFactory.getLogger(ResourcePresenter.class);
