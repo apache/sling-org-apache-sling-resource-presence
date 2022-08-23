@@ -89,6 +89,8 @@
         </dependencies>
         <configuration>
           <configLocation>checks.xml</configLocation>
+          <suppressionsLocation>checkstyle-suppressions.xml</suppressionsLocation>
+          <suppressionsFileExpression>checkstyle.suppressions.file</suppressionsFileExpression>
         </configuration>
         <executions>
           <execution>

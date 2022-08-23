@@ -24,7 +24,11 @@ import org.osgi.annotation.versioning.ProviderType;
 @ProviderType
 public interface ResourcePresence {
 
-    @NotNull
-    String getPath();
+    /**
+     * Provides the path of the resource.
+     *
+     * @return the path of the resource
+     */
+    @NotNull String getPath();
 
 }
