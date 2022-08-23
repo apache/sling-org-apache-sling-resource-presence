@@ -69,6 +69,9 @@ public class ResourcePresenter {
 
     private final Logger logger = LoggerFactory.getLogger(ResourcePresenter.class);
 
+    public ResourcePresenter() { //
+    }
+
     @Activate
     public void activate(final ResourcePresenterConfiguration configuration, final BundleContext bundleContext) {
         logger.info("activating resource presenter for {}", configuration.path());
