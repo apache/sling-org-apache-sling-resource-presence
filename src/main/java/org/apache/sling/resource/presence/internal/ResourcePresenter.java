@@ -77,7 +77,7 @@ public final class ResourcePresenter {
         logger.info("activating resource presenter for {}", configuration.path());
         path = configuration.path();
         this.bundleContext = bundleContext;
-        try (final ResourceResolver resourceResolver = getServiceResourceResolver()) {
+        try (ResourceResolver resourceResolver = getServiceResourceResolver()) {
             final Resource resource = resourceResolver.getResource(path);
             if (resource != null) {
                 registerResourcePresence();
