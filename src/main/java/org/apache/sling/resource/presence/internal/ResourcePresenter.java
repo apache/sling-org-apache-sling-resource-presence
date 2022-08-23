@@ -51,7 +51,7 @@ import org.slf4j.LoggerFactory;
     ocd = ResourcePresenterConfiguration.class,
     factory = true
 )
-public class ResourcePresenter {
+public final class ResourcePresenter {
 
     private String path;
 
