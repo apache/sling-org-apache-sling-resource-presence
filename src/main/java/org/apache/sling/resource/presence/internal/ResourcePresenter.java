@@ -41,6 +41,9 @@ import org.osgi.service.metatype.annotations.Designate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Service for registering {@link ResourcePresence}s based on {@link ResourceResolver} and {@link ResourceChange}s.
+ */
 @Component(
     configurationPolicy = ConfigurationPolicy.REQUIRE
 )

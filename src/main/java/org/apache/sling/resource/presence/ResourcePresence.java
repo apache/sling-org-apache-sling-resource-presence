@@ -21,6 +21,9 @@ package org.apache.sling.resource.presence;
 import org.jetbrains.annotations.NotNull;
 import org.osgi.annotation.versioning.ProviderType;
 
+/**
+ * Service which represents a present {@link org.apache.sling.api.resource.Resource}.
+ */
 @ProviderType
 public interface ResourcePresence {
 
