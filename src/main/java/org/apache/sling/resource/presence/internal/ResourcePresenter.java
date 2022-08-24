@@ -62,10 +62,11 @@ public final class ResourcePresenter {
     private ServiceRegistration<ResourceChangeListener> listenerRegistration;
 
     @Reference
+    @SuppressWarnings("java:S3077")
     private volatile ResourceResolverFactory resourceResolverFactory;
 
     @Reference
-    @SuppressWarnings("unused")
+    @SuppressWarnings({"unused", "java:S3077"})
     private volatile ServiceUserMapped serviceUserMapped;
 
     private final Logger logger = LoggerFactory.getLogger(ResourcePresenter.class);
