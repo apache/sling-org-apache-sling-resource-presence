@@ -6,7 +6,7 @@
 
 This module is part of the [Apache Sling](https://sling.apache.org) project.
 
-This module creates proxy OSGi services that are registered only if specific resources are present.
+This module creates proxy OSGi services that are registered only if specific [resources](https://sling.apache.org/documentation/the-sling-engine/resources.html) are present.
 
 Like for example:
 
@@ -14,7 +14,7 @@ Like for example:
 	private ResourcePresence barIsPresent;
 	
 The `barIsPresent` service is registered only if the `/content/foo/bar` resource is present, allowing OSGi
-components to be dependent on the presence of specific Resources.
+components to be dependent on the presence of specific resources.
 
 This is mostly meant for testing, to wait for test content before running specific tests.
 
@@ -45,12 +45,12 @@ When running tests with resources involved, you can use a resource presence to d
 
     @Configuration
     public Option[] configuration() {
-        return new Option[]{
+        return options(
             [...],
             factoryConfiguration("org.apache.sling.resource.presence.internal.ResourcePresenter")
                 .put("path", "/apps")
                 .asOption()
-        };
+        );
     }
 
     @Test
