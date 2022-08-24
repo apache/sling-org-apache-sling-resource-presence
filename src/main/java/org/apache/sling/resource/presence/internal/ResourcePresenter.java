@@ -120,6 +120,7 @@ public final class ResourcePresenter {
     }
 
     private void registerResourcePresence() {
+        @SuppressWarnings("java:S1149")
         final Dictionary<String, Object> properties = new Hashtable<>();
         properties.put("path", path);
         presenceRegistration = bundleContext.registerService(ResourcePresence.class, resourcePresence(), properties);
@@ -135,6 +136,7 @@ public final class ResourcePresenter {
     }
 
     private void registerResourceChangeListener() {
+        @SuppressWarnings("java:S1149")
         final Dictionary<String, Object> properties = new Hashtable<>();
         properties.put(ResourceChangeListener.PATHS, path);
         listenerRegistration = bundleContext.registerService(ResourceChangeListener.class, resourceChangeListener(), properties);
