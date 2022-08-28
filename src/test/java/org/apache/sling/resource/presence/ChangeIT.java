@@ -80,28 +80,29 @@ public class ChangeIT extends ResourcePresenterTestSupport {
         assertThat(countingServiceListener.unregisteredCount(), is(0));
 
         // create/register
-        final ResourceResolver resourceResolver = resourceResolverFactory.getAdministrativeResourceResolver(null);
-        final Resource root = resourceResolver.getResource("/");
-        final Resource test = resourceResolver.create(root, "test", null);
-        resourceResolver.commit();
-        with().
-            pollInterval(100, MILLISECONDS).
-            then().
-            await().
-            alias("counting register events").
-            atMost(1, SECONDS).
-            until(() -> countingServiceListener.registeredCount() == 1);
+        try (ResourceResolver resourceResolver = resourceResolverFactory.getAdministrativeResourceResolver(null)) {
+            final Resource root = resourceResolver.getResource("/");
+            final Resource test = resourceResolver.create(root, "test", null);
+            resourceResolver.commit();
+            with().
+                pollInterval(100, MILLISECONDS).
+                then().
+                await().
+                alias("counting register events").
+                atMost(1, SECONDS).
+                until(() -> countingServiceListener.registeredCount() == 1);
 
-        // delete/unregister
-        resourceResolver.delete(test);
-        resourceResolver.commit();
-        with().
-            pollInterval(100, MILLISECONDS).
-            then().
-            await().
-            alias("counting unregister events").
-            atMost(1, SECONDS).
-            until(() -> countingServiceListener.unregisteredCount() == 1);
+            // delete/unregister
+            resourceResolver.delete(test);
+            resourceResolver.commit();
+            with().
+                pollInterval(100, MILLISECONDS).
+                then().
+                await().
+                alias("counting unregister events").
+                atMost(1, SECONDS).
+                until(() -> countingServiceListener.unregisteredCount() == 1);
+        }
     }
 
     private static class CountingServiceListener implements ServiceListener {
