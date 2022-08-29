@@ -24,6 +24,7 @@ import org.ops4j.pax.exam.options.ModifiableCompositeOption;
 
 import static org.apache.sling.testing.paxexam.SlingOptions.slingQuickstartOakTar;
 import static org.ops4j.pax.exam.CoreOptions.composite;
+import static org.ops4j.pax.exam.CoreOptions.mavenBundle;
 import static org.ops4j.pax.exam.cm.ConfigurationAdminOptions.factoryConfiguration;
 
 public abstract class ResourcePresenterTestSupport extends TestSupport {
@@ -38,7 +39,9 @@ public abstract class ResourcePresenterTestSupport extends TestSupport {
             testBundle("bundle.filename"),
             factoryConfiguration("org.apache.sling.serviceusermapping.impl.ServiceUserMapperImpl.amended")
                 .put("user.mapping", new String[]{"org.apache.sling.resource.presence=[sling-readall]"})
-                .asOption()
+                .asOption(),
+            // testing
+            mavenBundle().groupId("org.apache.servicemix.bundles").artifactId("org.apache.servicemix.bundles.hamcrest").versionAsInProject()
         );
     }
 

@@ -222,10 +222,10 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>org.hamcrest</groupId>
-      <artifactId>hamcrest</artifactId>
+      <groupId>org.apache.servicemix.bundles</groupId>
+      <artifactId>org.apache.servicemix.bundles.hamcrest</artifactId>
+      <version>1.3_1</version>
       <scope>test</scope>
-      <version>2.2</version>
     </dependency>
     <dependency>
       <groupId>org.awaitility</groupId>
