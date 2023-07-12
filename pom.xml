@@ -201,7 +201,7 @@
       <groupId>org.apache.sling</groupId>
       <artifactId>org.apache.sling.testing.paxexam</artifactId>
       <scope>test</scope>
-      <version>4.0.0-SNAPSHOT</version>
+      <version>4.0.0</version>
     </dependency>
     <!-- nullability -->
     <dependency>
